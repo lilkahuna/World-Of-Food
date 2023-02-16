@@ -6,7 +6,7 @@ public class MovementScript : MonoBehaviour
 
 {
     int speed = 5;
-    RigidBody rb;
+    Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
@@ -14,6 +14,7 @@ public class MovementScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
+    
     // Update is called once per frame
     void Update()
     {
@@ -21,6 +22,8 @@ public class MovementScript : MonoBehaviour
         float verticalMove = Input.GetAxis("KeyVertical");
 
         Vector2 movement = new Vector2(horizontalMove, verticalMove);
+
+        rb.velocity = movement * speed;
 
     }
 }
