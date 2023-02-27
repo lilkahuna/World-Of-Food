@@ -9,8 +9,9 @@ public class PlayerScript : MonoBehaviour
     Rigidbody2D playerRigidbody;
     SpriteRenderer spriteRenderer;
     Animator animator;
-
     public bool isFacingRight = true;
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +30,16 @@ public class PlayerScript : MonoBehaviour
         float horizontalMove = Input.GetAxis("KeyHorizontal");
         float verticalMove = Input.GetAxis("KeyVertical");
 
-        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+        if (horizontalMove != 0)
+        {
+            animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+        }
+        
+        else if (verticalMove != 0)
+        {
+            animator.SetFloat("Speed", Mathf.Abs(verticalMove));
+        }
+
 
         Vector2 movement = new Vector2(horizontalMove, verticalMove);
 
@@ -53,5 +63,13 @@ public class PlayerScript : MonoBehaviour
         {
             return;
         }
+    }
+
+    private void OnTriggerEnter2D (Collider2D other)
+    {
+        if(other.tag == "Collectible")
+            {
+                Destroy(other.gameObject);
+            }
     }
 }
