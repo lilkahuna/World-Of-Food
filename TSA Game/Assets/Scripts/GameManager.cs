@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public bool collectibleAcquired = false;
+    [SerializeField] Text indicatorText;
     
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,14 @@ public class GameManager : MonoBehaviour
     {
         if (collectibleAcquired)
         {
+            StartCoroutine(CollectibleCollected);
+        }
 
+        public IEnumerator CollectibleCollected()
+        {
+            indicatorText.Text = "Level Collectible Acquired";
+            yield new WaitForSeconds(5);
+            indicatorText.Text = "Head towards the Restaurant";
         }
     }
 }
