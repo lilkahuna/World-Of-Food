@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CollectibleManager : MonoBehaviour
 {
+    [SerializeField] GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,7 @@ public class CollectibleManager : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            
+            gameManager.collectibleAcquired = true;
         }
     }
 }

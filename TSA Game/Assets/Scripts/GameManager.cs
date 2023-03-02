@@ -19,14 +19,18 @@ public class GameManager : MonoBehaviour
     {
         if (collectibleAcquired)
         {
-            StartCoroutine(CollectibleCollected);
+            StartCoroutine(CollectibleCollected());
+            collectibleAcquired = false;
         }
 
-        public IEnumerator CollectibleCollected()
-        {
-            indicatorText.Text = "Level Collectible Acquired";
-            yield new WaitForSeconds(5);
-            indicatorText.Text = "Head towards the Restaurant";
-        }
+        
     }
+
+    public IEnumerator CollectibleCollected()
+        {
+            indicatorText.text = "Level Collectible Acquired";
+            yield return new WaitForSeconds(5f);
+            indicatorText.text = "Head towards the Restaurant";
+            yield return new WaitForSeconds(3);
+        }
 }
