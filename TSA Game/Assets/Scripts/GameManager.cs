@@ -22,15 +22,13 @@ public class GameManager : MonoBehaviour
             StartCoroutine(CollectibleCollected());
             collectibleAcquired = false;
         }
-
-        
-    }
+    }  
 
     public IEnumerator CollectibleCollected()
         {
             indicatorText.text = "Level Collectible Acquired";
             yield return new WaitForSeconds(5f);
-            indicatorText.text = "Head towards the Restaurant";
+            indicatorText.text = "Heading To Next Country";
             yield return new WaitForSeconds(3);
         }
 }
