@@ -5,64 +5,46 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 
 {
-    int speed = 5;
-    Rigidbody2D playerRigidbody;
-    SpriteRenderer spriteRenderer;
-    Animator animator;
-    public bool isFacingRight = true;
+    public float speed = 15f; // player speed
+    public float rotationSpeed = 180f; // camera rotation speed
 
-    
+    public GameManager gameManager;
+
+    private Transform playerTransform; // cached transform component
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        playerRigidbody = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+
+        playerTransform = transform; // cache the transform component
     }
 
     
     // Update is called once per frame
     void Update()
     {
-        
-
-        float horizontalMove = Input.GetAxis("KeyHorizontal");
-        float verticalMove = Input.GetAxis("KeyVertical");
-
-        if (horizontalMove != 0)
+        if (gameManager.playerCanMove)
         {
-            animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
-        }
-        
-        else if (verticalMove != 0)
-        {
-            animator.SetFloat("Speed", Mathf.Abs(verticalMove));
-        }
+            // get the input axis values for forward and backward movement
+            float moveForward = Input.GetAxis("KeyVertical");
 
+            // create a movement vector based on the input and speed
+            Vector3 movement = playerTransform.forward * moveForward * speed * Time.deltaTime;
 
-        Vector2 movement = new Vector2(horizontalMove, verticalMove);
+            // add the movement vector to the player's position
+            playerTransform.position += movement;
 
-        playerRigidbody.velocity = movement * speed;
-        
-        //playerRigidbody.velocity = new Vector2(horizontalInput.x * playerSpeed, playerRigidbody.velocity.y);
+            // get the input axis value for camera rotation
+            float rotateCamera = Input.GetAxis("KeyHorizontal");
 
-        if (horizontalMove > 0)
-        {
-            isFacingRight = true;
-            spriteRenderer.flipX = false;
-        }
+            // create a rotation vector based on the input and rotation speed
+            Vector3 rotation = new Vector3(0f, rotateCamera, 0f) * rotationSpeed * Time.deltaTime;
 
-        else if (horizontalMove < 0)
-        {
-            isFacingRight = false;
-            spriteRenderer.flipX = true;
-        }
-
-        else
-        {
-            return;
-        }
+            // rotate the camera based on the input
+            playerTransform.localRotation *= Quaternion.Euler(rotation);
+        }   
     }
 
     private void OnTriggerEnter2D (Collider2D other)
