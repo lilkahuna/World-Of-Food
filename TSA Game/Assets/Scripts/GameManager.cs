@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TMP_Text missionText;
     [SerializeField] TMP_Text indicatorText;
     private int currentScene;
-    [SerializeField] Camera camera;
+    [SerializeField] Camera cam;
 
     // Start is called before the first frame update
     void Start()
@@ -54,9 +54,15 @@ public class GameManager : MonoBehaviour
     private IEnumerator LevelStart()
     {   
         introText.enabled = true;
-        yield return new WaitForSeconds(10f);
+        missionText.enabled = false;
+        yield return new WaitForSeconds(4.8f);
+        cam.cullingMask &= ~(1 << LayerMask.NameToLayer("Don't Show"));
+        yield return new WaitForSeconds(1f);
         introText.enabled = false;
+
+        
+
         missionText.enabled = true;
-        playerCanMove = true;
+        playerCanMove = true;   
     }
 }
