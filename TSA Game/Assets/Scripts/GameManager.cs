@@ -8,12 +8,13 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public bool collectibleAcquired = false;
-    public bool playerCanMove = false;
+    public bool playerCanMove;
     [SerializeField] TMP_Text introText;
-    [SerializeField] TMP_Text missionText;
+    [SerializeField] Text missionText;
     [SerializeField] TMP_Text indicatorText;
     private int currentScene;
     [SerializeField] Camera cam;
+    Color limegreen = new Vector4(0.12f, 1, 0, 1);
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +27,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (collectibleAcquired)
         {
             StartCoroutine(CollectibleCollected());
@@ -36,19 +36,24 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator CollectibleCollected()
     {
-        
-            indicatorText.text = "Level Collectible Acquired";
-            yield return new WaitForSeconds(5f);
-            if (SceneManager.GetActiveScene().name == "Level 2")
-                indicatorText.text = "Heading To Restaurant";
+        playerCanMove = false;
+        indicatorText.text = "Mission Accomplished: Level Collectible Acquired";
+        missionText.color = limegreen;
+        yield return new WaitForSeconds(5f);
 
-            else
-            {
-                indicatorText.text = "Heading To Next Level";
-            }
-            yield return new WaitForSeconds(3);
-            int newScene = currentScene + 1;
-            SceneManager.LoadScene(newScene);
+        for (int i=0; i<4; i++)
+        {
+            indicatorText.text = "Heading To Next Level.";
+            yield return new WaitForSeconds(.5f);
+            indicatorText.text = "Heading To Next Level..";
+            yield return new WaitForSeconds(.5f);
+            indicatorText.text = "Heading To Next Level...";
+            yield return new WaitForSeconds(.5f);
+        }
+
+        Debug.Log("Hooray");
+        int newScene = currentScene + 1;
+        SceneManager.LoadScene(newScene);
     }
 
     private IEnumerator LevelStart()

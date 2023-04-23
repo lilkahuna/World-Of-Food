@@ -48,9 +48,9 @@ public class PlayerScript : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter (Collider other)
+    public void OnTriggerEnter (Collider other)
     {
-        if(other.tag == "Collectible")
+        if(other.CompareTag("Collectible"))
             {
                 Destroy(other.gameObject);
             }
