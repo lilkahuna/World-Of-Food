@@ -18,9 +18,11 @@ public class Float : MonoBehaviour
 
     void Update()
     {
+
         float offset = Mathf.Sin(Time.time * speed) * height;
         Vector3 newPos = transform.position;
         newPos.y = startY + offset;
-        GetComponent<Rigidbody>().MovePosition(newPos);
+
+        transform.position = newPos;
     }
 }
