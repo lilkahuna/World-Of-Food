@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 
 {
-    public float speed = 15f; // player speed
+    public float speed = 30f; // player speed
     public float rotationSpeed = 180f; // camera rotation speed
 
     public GameManager gameManager;

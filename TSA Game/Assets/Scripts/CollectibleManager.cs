@@ -5,8 +5,9 @@ using UnityEngine;
 public class CollectibleManager : MonoBehaviour
 {
     [SerializeField] GameManager gameManager;
-    public float floatingHeight = 1.0f;
-    public float floatingSpeed = 1.0f;
+    public float floatingHeight = 2.0f;
+    public float floatingSpeed = 2.0f;
+    public float rotationSpeed = 80f;
 
     private float startY;
     // Start is called before the first frame update
@@ -23,6 +24,7 @@ public class CollectibleManager : MonoBehaviour
         newPos.y = startY + offset;
 
         transform.position = newPos;
+        transform.Rotate(Vector3.left, rotationSpeed * Time.deltaTime);
     }
 
     public void OnTriggerEnter (Collider other)
