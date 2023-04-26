@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 
 {
-    public float speed = 30f; // player speed
+    private float speed = 40f; // player speed
     public float rotationSpeed = 180f; // camera rotation speed
 
     public GameManager gameManager;
@@ -17,7 +17,6 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         playerTransform = transform; // cache the transform component
     }
 
