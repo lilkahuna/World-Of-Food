@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using System.Collections;
-
 public class Float : MonoBehaviour
 {
     public float height = 1.0f;

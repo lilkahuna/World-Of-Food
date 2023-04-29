@@ -210,7 +210,6 @@ GameObject:
   m_Component:
   - component: {fileID: 110713843}
   - component: {fileID: 110713842}
-  - component: {fileID: 110713844}
   - component: {fileID: 110713845}
   m_Layer: 0
   m_Name: CM vcam2
@@ -273,20 +272,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &110713844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 110713841}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd927aa0362574b1f83601e54cdde359, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 919132148395091984}
-  offset: {x: 0, y: 2.5, z: 0}
 --- !u!54 &110713845
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -580,6 +565,43 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 332380649}
   m_CullTransparentMesh: 1
+--- !u!84 &354802457
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: WaterDepthMap
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 1024
+  m_Height: 1024
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 94
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!1 &373584982
 GameObject:
   m_ObjectHideFlags: 0
@@ -1349,7 +1371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.364686, b: 0.33490568, a: 1}
+  m_Color: {r: 1, g: 0.050980393, b: 0.08235294, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1517,7 +1539,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  m_CustomBlends: {fileID: 11400000, guid: c387174177e6f8b48946f776c3068fba, type: 2}
+  m_CustomBlends: {fileID: 0}
   m_CameraCutEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1565,13 +1587,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6588e249440fa414a8dcae590b50846f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 40
+  moveSpeed: 40
   rotationSpeed: 180
-  gameManager: {fileID: 1613684150}
   cameraTransform: {fileID: 110713843}
   cameraDistance: 1
   cameraHeight: 3
   playerLookAt: {x: 0, y: 3, z: 0}
+  gameManager: {fileID: 1613684150}
 --- !u!4 &1567554828 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2655627b0720dc54bb70a793e4d3b861, type: 3}
@@ -1735,11 +1757,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77a23cc0306c048eb98ef6da97124173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectibleAcquired: 0
-  playerCanMove: 0
   introText: {fileID: 332380651}
   missionText: {fileID: 1292569853}
   indicatorText: {fileID: 1806872107}
+  collectibleAcquired: 0
+  playerCanMove: 0
   cam: {fileID: 1375680784}
 --- !u!4 &1613684151
 Transform:
@@ -1908,43 +1930,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!84 &1708545486
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: WaterDepthMap
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 5
-  m_Width: 1024
-  m_Height: 1024
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthStencilFormat: 94
-  m_ColorFormat: 0
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
-  m_ShadowSamplingMode: 2
 --- !u!114 &1759865965
 MonoBehaviour:
   m_ObjectHideFlags: 0

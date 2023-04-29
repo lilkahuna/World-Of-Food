@@ -2,31 +2,32 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    // Private variables that can be tweaked in the inspector
-    [SerializeField] private float moveSpeed; // player movement speed
-    [SerializeField] private float rotationSpeed = 180f; // player rotation speed
-    [SerializeField] private GameManager gameManager;
-    [SerializeField] private Transform cameraTransform; // the camera's transform component
-    [SerializeField] private float cameraDistance = 3f; // distance from camera to player
-    [SerializeField] private float cameraHeight = 2.5f; // height of camera above player
+    [Header("Movement Settings")]
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private float rotationSpeed = 180f;
+
+    [Header("Camera Settings")]
+    [SerializeField] private Transform cameraTransform;
+    [SerializeField] private float cameraDistance = 3f;
+    [SerializeField] private float cameraHeight = 2.5f;
     [SerializeField] private Vector3 playerLookAt = Vector3.forward;
 
-    // Private variables that are cached for performance
-    private Transform playerTransform; // cached transform component
+    [Header("References")]
+    [SerializeField] private GameManager gameManager;
+
+    private Transform playerTransform;
     private Animator anim;
     private bool isWalking = false;
-    private Vector3 moveDirection; // movement direction vector
+    private Vector3 moveDirection;
 
     private void Awake()
     {
-        // Cache the transform and animator components
         playerTransform = transform;
         anim = GetComponent<Animator>();
     }
 
     private void Start()
     {
-        // Lock cursor to the center of the screen
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -53,7 +54,7 @@ public class PlayerScript : MonoBehaviour
         playerTransform.Rotate(Vector3.up, rotatePlayerX * rotationSpeed * Time.deltaTime, Space.World);
 
         // Update walking animation
-        bool isMoving = moveForward != 0 || moveSide != 0;
+        bool isMoving = moveForward != 0f || moveSide != 0f;
         if (isMoving != isWalking)
         {
             isWalking = isMoving;

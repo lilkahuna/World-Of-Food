@@ -7,11 +7,19 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public bool collectibleAcquired = false;
-    public bool playerCanMove;
+
+    [Header("Text Objects References")]
     [SerializeField] TMP_Text introText;
     [SerializeField] Text missionText;
     [SerializeField] TMP_Text indicatorText;
+
+    [Header("Booleans")]
+    public bool collectibleAcquired = false;
+    public bool playerCanMove = true;
+
+    
+
+
     private int currentScene;
     [SerializeField] Camera cam;
     Color limegreen = new Vector4(0.12f, 1, 0, 1);
