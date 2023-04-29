@@ -31,6 +31,7 @@ public class CollectibleManager : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
+            Destroy(gameObject);
             gameManager.collectibleAcquired = true;
         }
     }

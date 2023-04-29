@@ -1,64 +1,74 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
-
 {
-    public float speed; // player speed
-    public float rotationSpeed = 180f; // camera rotation speed
+    // Private variables that can be tweaked in the inspector
+    [SerializeField] private float moveSpeed; // player movement speed
+    [SerializeField] private float rotationSpeed = 180f; // player rotation speed
+    [SerializeField] private GameManager gameManager;
+    [SerializeField] private Transform cameraTransform; // the camera's transform component
+    [SerializeField] private float cameraDistance = 3f; // distance from camera to player
+    [SerializeField] private float cameraHeight = 2.5f; // height of camera above player
+    [SerializeField] private Vector3 playerLookAt = Vector3.forward;
 
-    public GameManager gameManager;
-
+    // Private variables that are cached for performance
     private Transform playerTransform; // cached transform component
-    Animator anim;
+    private Animator anim;
+    private bool isWalking = false;
+    private Vector3 moveDirection; // movement direction vector
 
-
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
+        // Cache the transform and animator components
+        playerTransform = transform;
         anim = GetComponent<Animator>();
-        playerTransform = transform; // cache the transform component
     }
 
-    
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        if (anim)
-        {
-            anim.SetBool("IsWalking", true);
-            Debug.Log("Animator Present");
-        }
-        
-        if (gameManager.playerCanMove)
-        {
-            // get the input axis values for forward and backward movement
-            float moveForward = Input.GetAxis("KeyVertical");
-
-            // create a movement vector based on the input and speed
-            Vector3 movement = playerTransform.forward * moveForward * speed * Time.deltaTime;
-
-            // add the movement vector to the player's position
-            playerTransform.position += movement;
-
-            // get the input axis value for camera rotation
-            float rotateCamera = Input.GetAxis("KeyHorizontal");
-
-            // create a rotation vector based on the input and rotation speed
-            Vector3 rotation = new Vector3(0f, rotateCamera, 0f) * rotationSpeed * Time.deltaTime;
-
-            // rotate the camera based on the input
-            playerTransform.localRotation *= Quaternion.Euler(rotation);
-        }
-
+        // Lock cursor to the center of the screen
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
-    public void OnTriggerEnter (Collider other)
+    private void Update()
     {
-        if(other.CompareTag("Collectible"))
-            {
-                Destroy(other.gameObject);
-            }
+        if (!gameManager.playerCanMove) return;
+
+        // Get movement input
+        float moveForward = Input.GetAxis("KeyVertical");
+        float moveSide = Input.GetAxis("KeyHorizontal");
+
+        // Calculate movement direction vector
+        moveDirection = playerTransform.forward * moveForward + playerTransform.right * moveSide;
+        moveDirection.y = 0f;
+        moveDirection.Normalize();
+
+        // Move the player
+        playerTransform.position += moveDirection * moveSpeed * Time.deltaTime;
+
+        // Get camera rotation input
+        float rotatePlayerX = Input.GetAxis("Mouse X");
+
+        // Rotate the player based on input
+        playerTransform.Rotate(Vector3.up, rotatePlayerX * rotationSpeed * Time.deltaTime, Space.World);
+
+        // Update walking animation
+        bool isMoving = moveForward != 0 || moveSide != 0;
+        if (isMoving != isWalking)
+        {
+            isWalking = isMoving;
+            anim.SetBool("IsWalking", isMoving);
+        }
+
+        // Update camera position and rotation
+        if (cameraTransform != null)
+        {
+            // Calculate camera position relative to player
+            Vector3 cameraOffset = -playerTransform.forward * cameraDistance + Vector3.up * cameraHeight;
+
+            // Set camera position and rotation
+            cameraTransform.position = playerTransform.position + cameraOffset;
+            cameraTransform.LookAt(playerTransform.position + playerTransform.TransformDirection(playerLookAt));
+        }
     }
 }
