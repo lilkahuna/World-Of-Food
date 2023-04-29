@@ -5,18 +5,19 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 
 {
-    private float speed = 40f; // player speed
+    public float speed; // player speed
     public float rotationSpeed = 180f; // camera rotation speed
 
     public GameManager gameManager;
 
     private Transform playerTransform; // cached transform component
-
+    Animator anim;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
         playerTransform = transform; // cache the transform component
     }
 
@@ -24,6 +25,12 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (anim)
+        {
+            anim.SetBool("IsWalking", true);
+            Debug.Log("Animator Present");
+        }
+        
         if (gameManager.playerCanMove)
         {
             // get the input axis values for forward and backward movement
