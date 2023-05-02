@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.69590527, g: 0.41355395, b: 0.3203534, a: 1}
+  m_IndirectSpecularColor: {r: 0.68435615, g: 0.41333684, b: 0.3215612, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -132,7 +132,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 19472607}
-  - component: {fileID: 19472610}
   - component: {fileID: 19472609}
   - component: {fileID: 19472608}
   - component: {fileID: 19472611}
@@ -213,14 +212,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &19472610
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 19472606}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!54 &19472611
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -233,7 +224,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -246,7 +237,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 45890422}
-  - component: {fileID: 45890425}
   - component: {fileID: 45890424}
   - component: {fileID: 45890423}
   - component: {fileID: 45890426}
@@ -327,14 +317,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &45890425
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 45890421}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!54 &45890426
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -347,7 +329,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -766,7 +748,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8668057124278754609, guid: a5e99bdc1db76bc4bad0e40629ec2204, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -72.7
+      value: -32.2
       objectReference: {fileID: 0}
     - target: {fileID: 8668057124278754609, guid: a5e99bdc1db76bc4bad0e40629ec2204, type: 3}
       propertyPath: m_LocalPosition.y
@@ -774,7 +756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8668057124278754609, guid: a5e99bdc1db76bc4bad0e40629ec2204, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 66.1
+      value: 104.2
       objectReference: {fileID: 0}
     - target: {fileID: 8668057124278754609, guid: a5e99bdc1db76bc4bad0e40629ec2204, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1264,7 +1246,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1024413903}
-  - component: {fileID: 1024413906}
   - component: {fileID: 1024413905}
   - component: {fileID: 1024413904}
   - component: {fileID: 1024413907}
@@ -1345,14 +1326,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1024413906
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1024413902}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!54 &1024413907
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1365,7 +1338,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -1763,7 +1736,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8668057124278754609, guid: a5e99bdc1db76bc4bad0e40629ec2204, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -61.1
+      value: -24.7
       objectReference: {fileID: 0}
     - target: {fileID: 8668057124278754609, guid: a5e99bdc1db76bc4bad0e40629ec2204, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1771,7 +1744,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8668057124278754609, guid: a5e99bdc1db76bc4bad0e40629ec2204, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 165.3
+      value: 154.6
       objectReference: {fileID: 0}
     - target: {fileID: 8668057124278754609, guid: a5e99bdc1db76bc4bad0e40629ec2204, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1925,7 +1898,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1357715476}
-  - component: {fileID: 1357715479}
   - component: {fileID: 1357715478}
   - component: {fileID: 1357715477}
   - component: {fileID: 1357715480}
@@ -2006,14 +1978,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1357715479
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1357715475}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!54 &1357715480
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2026,7 +1990,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -2234,7 +2198,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8668057124278754609, guid: a5e99bdc1db76bc4bad0e40629ec2204, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 54.4
+      value: 30.8
       objectReference: {fileID: 0}
     - target: {fileID: 8668057124278754609, guid: a5e99bdc1db76bc4bad0e40629ec2204, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2810,7 +2774,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1826304491}
   m_LocalRotation: {x: 0, y: -0.92387956, z: 0, w: 0.38268343}
-  m_LocalPosition: {x: 196.5, y: 7, z: 197.9}
+  m_LocalPosition: {x: 98.6, y: 7, z: 96.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3689,6 +3653,7 @@ GameObject:
   - component: {fileID: 3366203246702014257}
   - component: {fileID: 4538507851138552927}
   - component: {fileID: 4538507851138552928}
+  - component: {fileID: 4538507851138552929}
   m_Layer: 0
   m_Name: Baguette
   m_TagString: Collectible
@@ -3846,7 +3811,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3870796002380156644}
   m_LocalRotation: {x: 0.000000020485032, y: 0.34856182, z: -0.000000007618061, w: 0.93728584}
-  m_LocalPosition: {x: 1.8629148, y: 1.3033333, z: -2.356514}
+  m_LocalPosition: {x: 1.8629148, y: 0.987, z: -2.356514}
   m_LocalScale: {x: 13.333331, y: 13.333334, z: 13.333331}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -3880,11 +3845,24 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &4538507851138552929
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3870796002380156644}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.019440932, y: 0.015533216, z: 0.055634335}
+  m_Center: {x: 0.00000011966269, y: 0.002233391, z: 0.0011760026}
 --- !u!1 &4549111882458336897
 GameObject:
   m_ObjectHideFlags: 0
@@ -4641,7 +4619,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8668057124278754609, guid: a5e99bdc1db76bc4bad0e40629ec2204, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 207.1
+      value: 187.7
       objectReference: {fileID: 0}
     - target: {fileID: 8668057124278754609, guid: a5e99bdc1db76bc4bad0e40629ec2204, type: 3}
       propertyPath: m_LocalRotation.w

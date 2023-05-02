@@ -101,10 +101,10 @@ public class GameManager : MonoBehaviour
         {
             Destroy(fires[i].gameObject);
         }
-        GameObject.Instantiate(fire, new Vector3(52, -198, 225), Quaternion.identity);
-        GameObject.Instantiate(fire, new Vector3(157, -198, 121), Quaternion.identity);
-        GameObject.Instantiate(fire, new Vector3(165, -198, 10), Quaternion.identity);
-        GameObject.Instantiate(fire, new Vector3(50, -198, 10), Quaternion.identity);
+        GameObject.Instantiate(fire, new Vector3(1, -198, 188), Quaternion.identity);
+        GameObject.Instantiate(fire, new Vector3(31, -198, 122), Quaternion.identity);
+        GameObject.Instantiate(fire, new Vector3(-32, -198, 104), Quaternion.identity);
+        GameObject.Instantiate(fire, new Vector3(-25, -198, 155), Quaternion.identity);
         yield return new WaitForSeconds(5);
         restartPlayer = true;
         yield return new WaitForSeconds(1);
