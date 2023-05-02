@@ -760,7 +760,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &376769720
 GameObject:
@@ -1079,7 +1079,7 @@ RectTransform:
   - {fileID: 2075696837}
   - {fileID: 979854151}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1169,7 +1169,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420033
 MonoBehaviour:
@@ -1359,7 +1359,7 @@ Transform:
   - {fileID: 1945857191}
   - {fileID: 2073667207}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &821193690
 GameObject:
@@ -1759,8 +1759,14 @@ MonoBehaviour:
   introText: {fileID: 0}
   missionText: {fileID: 0}
   indicatorText: {fileID: 0}
+  healthText: {fileID: 0}
+  gameOver: {fileID: 0}
   collectibleAcquired: 0
   playerCanMove: 1
+  restartPlayer: 0
+  fire: {fileID: 0}
+  playerScript: {fileID: 0}
+  fireNumber: 1
   cam: {fileID: 0}
 --- !u!4 &1032112252
 Transform:
@@ -1775,7 +1781,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1096132190
 GameObject:
@@ -3524,7 +3530,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1748671146
 GameObject:
