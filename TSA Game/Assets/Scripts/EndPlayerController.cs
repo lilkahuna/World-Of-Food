@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 
-public class VideoPlayerController : MonoBehaviour
+public class EndPlayerController : MonoBehaviour
 {
     //public string Egypt;
     public string url;
@@ -32,12 +32,11 @@ public class VideoPlayerController : MonoBehaviour
         videoPlayer.Play();
         videoPlayer.isLooping = false;
         StartCoroutine(TimerMethod());
-        //SceneManager.LoadScene("Egypt");
     }
 
     public IEnumerator TimerMethod()
     {
         yield return new WaitForSeconds(31);
-        SceneManager.LoadScene("Egypt");
+        Application.Quit();
     }
 }

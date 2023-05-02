@@ -105,11 +105,6 @@ public class GameManager : MonoBehaviour
         GameObject.Instantiate(fire, new Vector3(157, -198, 121), Quaternion.identity);
         GameObject.Instantiate(fire, new Vector3(165, -198, 10), Quaternion.identity);
         GameObject.Instantiate(fire, new Vector3(50, -198, 10), Quaternion.identity);
-        GameObject.Instantiate(fire, new Vector3(-45, -198, 10), Quaternion.identity);
-        GameObject.Instantiate(fire, new Vector3(-45, -198, 120), Quaternion.identity);
-        GameObject.Instantiate(fire, new Vector3(-45, -198, 225), Quaternion.identity);
-        GameObject.Instantiate(fire, new Vector3(9, -198, 118), Quaternion.identity);
-        GameObject.Instantiate(fire, new Vector3(66, -198, 75), Quaternion.identity);
         yield return new WaitForSeconds(5);
         restartPlayer = true;
         yield return new WaitForSeconds(1);

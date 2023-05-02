@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -521,14 +521,14 @@ VideoPlayer:
   m_TargetMaterialProperty: <noninit>
   m_RenderMode: 2
   m_AspectRatio: 0
-  m_DataSource: 0
+  m_DataSource: 1
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
   m_TargetAudioSources:
   - {fileID: 0}
   m_DirectAudioVolumes:
   - 1
-  m_Url: 
+  m_Url: https://mintythecoder.github.io/videos/EndingScene.mp4
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
@@ -562,10 +562,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 859485857}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caf1c46aa1c698c418972415b9530ec8, type: 3}
+  m_Script: {fileID: 11500000, guid: d6451a00fd4f1854d8b4462f3531f3a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Egypt: Egypt
+  url: https://mintythecoder.github.io/videos/EndingScene.mp4
+  Egypt: 
 --- !u!1 &878657803
 GameObject:
   m_ObjectHideFlags: 0
