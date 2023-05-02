@@ -29,10 +29,10 @@ public class FireSpread : MonoBehaviour
         GameObject newFire = GameObject.Instantiate(gameObject, newFirePos, Quaternion.identity);
         gameManager.fireNumber += 1;
         //newFire.transform.SetParent(gameObject.transform);
-        if (gameManager.fireNumber > 10)
+        if (gameManager.fireNumber > 30)
         {
             Destroy(gameObject);
-            gameManager.fireNumber = 10;
+            gameManager.fireNumber = 30;
         }
 
         Debug.Log(gameManager.fireNumber);
