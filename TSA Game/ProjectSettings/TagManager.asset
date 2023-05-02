@@ -10,11 +10,11 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Don't Show
+  - Player
   - Water
   - UI
   - Terrain
-  - Collectible
+  - MiniMap
   - 
   - 
   - 

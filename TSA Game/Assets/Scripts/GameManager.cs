@@ -12,14 +12,18 @@ public class GameManager : MonoBehaviour
     [SerializeField] TMP_Text introText;
     [SerializeField] Text missionText;
     [SerializeField] TMP_Text indicatorText;
+    [SerializeField] Text healthText;
+    [SerializeField] Text gameOver;
 
     [Header("Booleans")]
     public bool collectibleAcquired = false;
     public bool playerCanMove = true;
+    public bool restartPlayer = false;
 
-    
 
-
+    [SerializeField] GameObject fire;
+    public PlayerScript playerScript;
+    public int fireNumber = 1;
     private int currentScene;
     [SerializeField] Camera cam;
     Color limegreen = new Vector4(0.12f, 1, 0, 1);
@@ -29,7 +33,6 @@ public class GameManager : MonoBehaviour
     {
        StartCoroutine(LevelStart());
        currentScene = SceneManager.GetActiveScene().buildIndex;
-       
     }
 
     // Update is called once per frame
@@ -39,6 +42,13 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(CollectibleCollected());
             collectibleAcquired = false;
+        }
+
+        healthText.text = ("Health: " + playerScript.health);
+
+        if (playerScript.health == 0)
+        {
+            StartCoroutine(LevelFailed()); 
         }
     }  
 
@@ -68,8 +78,10 @@ public class GameManager : MonoBehaviour
     {   
         introText.enabled = true;
         missionText.enabled = false;
+        gameOver.enabled = false;
         yield return new WaitForSeconds(4.8f);
-        cam.cullingMask &= ~(1 << LayerMask.NameToLayer("Don't Show"));
+        cam.cullingMask &= ~(1 << LayerMask.NameToLayer("Player"));
+        cam.cullingMask&= ~(1 << LayerMask.NameToLayer("MiniMap"));
         yield return new WaitForSeconds(1f);
         introText.enabled = false;
 
@@ -77,5 +89,26 @@ public class GameManager : MonoBehaviour
 
         missionText.enabled = true;
         playerCanMove = true;   
+    }
+
+    private IEnumerator LevelFailed()
+    {
+        playerCanMove = false;
+        gameOver.enabled = true;
+        gameOver.text = "Mission Failed \n Try Again";
+        GameObject[] fires = GameObject.FindGameObjectsWithTag("Fire");
+        for(int i = 0; i < fires.Length; i++)
+        {
+            Destroy(fires[i].gameObject);
+        }
+
+        GameObject.Instantiate(fire, new Vector3(50, 0, 75), Quaternion.identity);
+        yield return new WaitForSeconds(5);
+        restartPlayer = true;
+        yield return new WaitForSeconds(1);
+        gameOver.enabled = false;
+        restartPlayer = false;
+        playerCanMove = true;
+        playerScript.health = 100;
     }
 }

@@ -14,6 +14,9 @@ public class PlayerScript : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private GameObject spawnPoint;
+
+    public int health = 100;
 
     private Transform playerTransform;
     private Animator anim;
@@ -70,6 +73,15 @@ public class PlayerScript : MonoBehaviour
             // Set camera position and rotation
             cameraTransform.position = playerTransform.position + cameraOffset;
             cameraTransform.LookAt(playerTransform.position + playerTransform.TransformDirection(playerLookAt));
+        }
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Fire"))
+        {
+            health -= 10;
+            Debug.Log("health is " + health);
         }
     }
 }
